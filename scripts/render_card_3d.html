@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="utf-8"><style>body{margin:0;overflow:hidden;background:#0e2a21;}</style></head>
+<body>
+<canvas id="c" width="780" height="980"></canvas>
+<script type="module">
+import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.164.1/build/three.module.js';
+const mode = new URLSearchParams(location.search).get('mode') || 'reha';
+const canvas = document.getElementById('c');
+const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, preserveDrawingBuffer: true });
+renderer.setSize(780, 980, false);
+renderer.toneMapping = THREE.ACESFilmicToneMapping;
+renderer.toneMappingExposure = 1.15;
+
+const scene = new THREE.Scene();
+scene.background = new THREE.Color(mode === 'reha' ? 0x173a2e : 0x243b3f);
+
+const camera = new THREE.PerspectiveCamera(34, 780 / 980, 0.1, 30);
+camera.position.set(0.3, 0.25, 4.6);
+camera.lookAt(0, 0, 0);
+
+const amb = new THREE.AmbientLight(0xdff2ea, 1.1);
+const key = new THREE.DirectionalLight(0xffffff, 2.5);
+key.position.set(3.5, 5, 4.5);
+const rim = new THREE.DirectionalLight(0x52e0a8, 2.0);
+rim.position.set(-4, 1, -3);
+const fill = new THREE.PointLight(0x88d4b8, 1.2, 12);
+fill.position.set(0, -2.5, 3);
+scene.add(amb, key, rim, fill);
+
+const boneMat = new THREE.MeshPhysicalMaterial({ color: 0xf1f5f2, roughness: 0.22, metalness: 0.04, clearcoat: 0.65 });
+const boneWarm = new THREE.MeshPhysicalMaterial({ color: 0xd9e3dd, roughness: 0.28, metalness: 0.05, clearcoat: 0.5 });
+const emMat = new THREE.MeshPhysicalMaterial({ color: 0x35b988, emissive: 0x13593f, emissiveIntensity: 0.55, roughness: 0.14, clearcoat: 0.95 });
+const glassRing = new THREE.MeshPhysicalMaterial({ color: 0x7fd4b4, roughness: 0.15, transparent: true, opacity: 0.45, clearcoat: 0.9 });
+
+const root = new THREE.Group();
+if (mode === 'reha') {
+  const femur = new THREE.Mesh(new THREE.CylinderGeometry(0.28, 0.42, 1.1, 40), boneMat);
+  femur.position.y = 0.85;
+  const cL = new THREE.Mesh(new THREE.SphereGeometry(0.31, 36, 36), boneMat);
+  cL.position.set(-0.22, 0.28, 0);
+  const cR = cL.clone();
+  cR.position.x = 0.22;
+  const meniscus = new THREE.Mesh(new THREE.TorusGeometry(0.45, 0.09, 24, 64), emMat);
+  meniscus.rotation.x = Math.PI * 0.5;
+  const tibia = new THREE.Mesh(new THREE.CylinderGeometry(0.4, 0.26, 1.1, 40), boneWarm);
+  tibia.position.y = -0.82;
+  const ring1 = new THREE.Mesh(new THREE.TorusGeometry(0.95, 0.022, 16, 80), glassRing);
+  ring1.rotation.set(0.55, 0.25, 0);
+  const ring2 = new THREE.Mesh(new THREE.TorusGeometry(1.15, 0.015, 16, 80), glassRing);
+  ring2.rotation.set(-0.4, 0.6, 0.2);
+  root.add(femur, cL, cR, meniscus, tibia, ring1, ring2);
+  root.rotation.set(0.14, 0.32, -0.05);
+} else {
+  const pts = [
+    new THREE.Vector3(-0.88, 0.82, -0.25),
+    new THREE.Vector3(-0.76, 0.08, -0.04),
+    new THREE.Vector3(-0.4, -0.5, 0.52),
+    new THREE.Vector3(0, -0.62, 0.74),
+    new THREE.Vector3(0.4, -0.5, 0.52),
+    new THREE.Vector3(0.76, 0.08, -0.04),
+    new THREE.Vector3(0.88, 0.82, -0.25),
+  ];
+  const jaw = new THREE.Mesh(new THREE.TubeGeometry(new THREE.CatmullRomCurve3(pts), 80, 0.145, 24, false), boneMat);
+  root.add(jaw);
+  [-0.88, 0.88].forEach((x) => {
+    const cond = new THREE.Mesh(new THREE.SphereGeometry(0.21, 32, 32), emMat);
+    cond.position.set(x, 0.86, -0.26);
+    const fossa = new THREE.Mesh(new THREE.TorusGeometry(0.28, 0.045, 16, 48), boneWarm);
+    fossa.position.set(x, 0.96, -0.26);
+    fossa.rotation.x = Math.PI * 0.5;
+    root.add(cond, fossa);
+  });
+  const orbit = new THREE.Mesh(new THREE.TorusGeometry(1.05, 0.02, 16, 80), glassRing);
+  orbit.rotation.set(1.15, 0.2, 0);
+  root.add(orbit);
+  root.rotation.set(0.22, -0.35, 0.04);
+}
+scene.add(root);
+renderer.render(scene, camera);
+window.__renderDone = true;
+</script>
+</body>
+</html>

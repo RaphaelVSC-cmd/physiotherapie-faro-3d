@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="de" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Physiotherapie Faro in München Maxvorstadt: Manuelle Therapie, Krankengymnastik, CMD Kiefergelenktherapie, Sportrehabilitation und Lymphdrainage. 5,0 Sterne.">
+  <title>Physiotherapie Faro | München Maxvorstadt</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='18' fill='%230b231c'/><path d='M32 14v36M22 24c4-3 16-3 20 0M20 34c5-3 19-3 24 0M24 44c3-2 13-2 16 0' stroke='%2345c496' stroke-width='4' stroke-linecap='round' fill='none'/></svg>">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/split-type@0.3.4/umd/index.min.js"></script>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Zum Hauptinhalt springen</a>
+
+  <!-- Unified Single Header -->
+  <header class="site-header" id="mainNav">
+    <div class="header-inner">
+      <a href="#" class="nav-logo" aria-label="Physiotherapie Faro Startseite">
+        <span class="w-8 h-8 rounded-full bg-white/15 border border-white/20 flex items-center justify-center">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <path d="M12 3v18M7 8c3-2 7-2 10 0M6 13c4-2 8-2 12 0M8 18c2.5-1.5 5.5-1.5 8 0"/>
+          </svg>
+        </span>
+        <span>Physiotherapie Faro</span>
+      </a>
+
+      <nav class="nav-links hidden md:flex items-center gap-7" aria-label="Hauptnavigation">
+        <a href="#leistungen">Leistungen</a>
+        <a href="#explorer">3D Anatomie</a>
+        <a href="#praxis">Praxis</a>
+        <a href="#bewertungen">Bewertungen</a>
+        <a href="#kontakt">Kontakt</a>
+      </nav>
+
+      <div class="flex items-center gap-2.5">
+        <button id="themeToggle" class="theme-toggle" aria-label="Farbschema wechseln" title="Hell/Dunkel wechseln">
+          <svg id="icon-sun" class="w-4 h-4 hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/>
+          </svg>
+          <svg id="icon-moon" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+          </svg>
+        </button>
+        <a href="tel:+498918914161" class="btn-pill btn-pill-nav hidden sm:inline-flex">
+          Termin anfragen
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </a>
+        <button class="hamburger" id="hamburger" aria-label="Menü öffnen" aria-expanded="false">
+          <span class="ham-line top"></span>
+          <span class="ham-line mid"></span>
+          <span class="ham-line bot"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Navigation Overlay -->
+  <div class="mobile-overlay" id="mobileMenu" aria-hidden="true">
+    <nav class="flex flex-col items-center gap-6 text-white text-2xl font-display font-semibold" aria-label="Mobile Navigation">
+      <a href="#leistungen" class="hover:text-[#45c496] transition-colors">Leistungen</a>
+      <a href="#explorer" class="hover:text-[#45c496] transition-colors">3D Anatomie</a>
+      <a href="#praxis" class="hover:text-[#45c496] transition-colors">Praxis & Team</a>
+      <a href="#bewertungen" class="hover:text-[#45c496] transition-colors">Bewertungen</a>
+      <a href="#kontakt" class="hover:text-[#45c496] transition-colors">Kontakt</a>
+      <a href="tel:+498918914161" class="btn-pill btn-pill-light mt-2 text-base">+49 89 18914161</a>
+    </nav>
+  </div>
+
+  <main id="main-content">
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <!-- S01: HERO 3D FLUTED EMERALD STAGE (Aurain R03)                      -->
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <section class="hero-stage" id="hero">
+      <canvas id="hero-webgl" aria-hidden="true"></canvas>
+
+      <div class="hero-content max-w-[1360px] mx-auto px-5 sm:px-8 lg:px-12 text-center flex flex-col items-center">
+        <div class="hero-scrim flex flex-col items-center">
+          <div class="text-xs sm:text-sm font-medium text-white/85 hero-stagger mb-5 flex items-center gap-2">
+            <span class="text-[#7ae4bc]">★★★★★</span>
+            <span>5,0 Sterne aus 26 Google Bewertungen · Nymphenburger Str. 20a, München</span>
+          </div>
+
+          <h1 class="hero-title max-w-4xl mx-auto">
+            Präzise Therapie für spürbare Bewegung
+          </h1>
+
+          <p class="hero-sub mt-5 hero-stagger">
+            Evidenzbasierte Manuelle Therapie, Krankengymnastik, CMD und Sportrehabilitation in der Maxvorstadt. Für alle gesetzlichen Kassen und Privatpatienten.
+          </p>
+        </div>
+
+        <div class="flex flex-wrap items-center justify-center gap-6 mt-6 hero-stagger">
+          <a href="#kontakt" class="btn-pill btn-pill-light">
+            Termin vereinbaren
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          </a>
+          <a href="#explorer" class="text-sm font-medium text-white/85 hover:text-white underline underline-offset-4 transition-colors">
+            3D Körperachse erkunden ↓
+          </a>
+        </div>
+
+        <!-- 5 Fanned Perspective Cards Arc (Cohesive Editorial Photography) -->
+        <div class="fanned-arc hero-stagger" aria-label="Therapieschwerpunkte Vorschau">
+          <div class="fanned-card" data-pos="1">
+            <img src="assets/images/therapy-manual.jpg" alt="Manuelle Therapie an Schulter und Nacken" width="390" height="490" fetchpriority="high">
+            <span class="img-badge">Beispielbild</span>
+            <div class="fanned-caption">Manuelle Therapie</div>
+          </div>
+          <div class="fanned-card" data-pos="2">
+            <img src="assets/images/therapy-core.jpg" alt="Krankengymnastik und Rumpfstabilität" width="390" height="490" fetchpriority="high">
+            <span class="img-badge">Beispielbild</span>
+            <div class="fanned-caption">Krankengymnastik</div>
+          </div>
+          <div class="fanned-card" data-pos="3">
+            <img src="assets/images/clinic-interior.jpg" alt="Praxisräume Physiotherapie Faro in München" width="420" height="520" fetchpriority="high">
+            <span class="img-badge">Beispielbild</span>
+            <div class="fanned-caption">Praxis Maxvorstadt</div>
+          </div>
+          <div class="fanned-card" data-pos="4">
+            <img src="assets/images/therapy-detail-hands.jpg" alt="Kiefergelenktherapie und Halswirbelsäule" width="390" height="490" fetchpriority="high">
+            <span class="img-badge">Beispielbild</span>
+            <div class="fanned-caption">Kiefergelenk CMD</div>
+          </div>
+          <div class="fanned-card" data-pos="5">
+            <img src="assets/images/therapy-detail-studio.jpg" alt="Postoperative Sportrehabilitation und Faszientherapie" width="390" height="490" fetchpriority="high">
+            <span class="img-badge">Beispielbild</span>
+            <div class="fanned-caption">Sportreha & Faszien</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <!-- S02: 4x 3D ANATOMICAL TREATMENT CARDS + OPEN PRACTICE EDITORIAL     -->
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <section id="leistungen" class="scroll-mt-24 relative z-10 bg-[var(--bg)] pt-14 pb-14 lg:pt-20 lg:pb-20">
+      <div class="max-w-[1360px] mx-auto px-5 sm:px-8 lg:px-12">
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
+        <div>
+          <h2 class="text-3xl sm:text-5xl font-semibold max-w-2xl">
+            Spezialisierte Leistungen <span class="text-[#196b4f]">in 3D erlebbar</span>
+          </h2>
+          <p class="mt-3 text-[var(--fg-muted)] max-w-2xl">
+            Jede Behandlung beginnt mit einem strukturierten Befund. Wählen Sie einen Bereich, um das anatomische Segment direkt im 3D Explorer zu öffnen.
+          </p>
+        </div>
+        <a href="tel:+498918914161" class="text-sm font-semibold text-[var(--emerald-accent)] hover:underline underline-offset-4 shrink-0">
+          Telefonische Terminvergabe: +49 89 18914161 →
+        </a>
+      </div>
+
+      <div id="cards-stage" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        <canvas id="cards-webgl" aria-hidden="true"></canvas>
+
+        <article class="treatment-card tint-1 cursor-pointer" data-jump-zone="lws">
+          <div class="flex items-start justify-between">
+            <span class="text-xs font-medium px-3 py-1 rounded-full bg-white/80 text-[#0e1c17]">Kasse & Privat</span>
+            <span class="circle-arrow" aria-hidden="true">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M7 17L17 7M7 7h10v10"/></svg>
+            </span>
+          </div>
+          <div class="card-3d-slot my-1" data-model="manual" aria-label="Interaktives 3D Wirbelsäulenmodell"></div>
+          <div>
+            <h3 class="text-xl font-semibold">Manuelle Therapie</h3>
+            <p class="text-sm text-[var(--fg-muted)] mt-1.5">
+              Gezielte Mobilisation blockierter Gelenke und Entlastung komprimierter Nervenstrukturen.
+            </p>
+          </div>
+        </article>
+
+        <article class="treatment-card tint-2 cursor-pointer" data-jump-zone="lws">
+          <div class="flex items-start justify-between">
+            <span class="text-xs font-medium px-3 py-1 rounded-full bg-white/80 text-[#0e1c17]">Aktive Stabilität</span>
+            <span class="circle-arrow" aria-hidden="true">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M7 17L17 7M7 7h10v10"/></svg>
+            </span>
+          </div>
+          <div class="card-3d-slot my-1" data-model="kg" aria-label="Interaktives 3D Bewegungsmodell"></div>
+          <div>
+            <h3 class="text-xl font-semibold">Krankengymnastik</h3>
+            <p class="text-sm text-[var(--fg-muted)] mt-1.5">
+              Individuell geführte Übungstherapie für Haltung, Kraftaufbau und nachhaltige Schmerzfreiheit.
+            </p>
+          </div>
+        </article>
+
+        <article class="treatment-card tint-3 cursor-pointer" data-jump-zone="hws">
+          <div class="flex items-start justify-between">
+            <span class="text-xs font-medium px-3 py-1 rounded-full bg-white/80 text-[#0e1c17]">Kiefer & Nacken</span>
+            <span class="circle-arrow" aria-hidden="true">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M7 17L17 7M7 7h10v10"/></svg>
+            </span>
+          </div>
+          <div class="card-3d-slot my-1" data-model="cmd" aria-label="Interaktives 3D Kiefergelenkmodell"></div>
+          <div>
+            <h3 class="text-xl font-semibold">Kiefergelenktherapie (CMD)</h3>
+            <p class="text-sm text-[var(--fg-muted)] mt-1.5">
+              Spezialisierte Behandlung bei Kieferpressen, Knacken und zervikogenen Kopfschmerzen.
+            </p>
+          </div>
+        </article>
+
+        <article class="treatment-card tint-4 cursor-pointer" data-jump-zone="knie">
+          <div class="flex items-start justify-between">
+            <span class="text-xs font-medium px-3 py-1 rounded-full bg-white/80 text-[#0e1c17]">Aufbau & Fluss</span>
+            <span class="circle-arrow" aria-hidden="true">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M7 17L17 7M7 7h10v10"/></svg>
+            </span>
+          </div>
+          <div class="card-3d-slot my-1" data-model="reha" aria-label="Interaktives 3D Kniegelenkmodell"></div>
+          <div>
+            <h3 class="text-xl font-semibold">Sportreha & Lymphdrainage</h3>
+            <p class="text-sm text-[var(--fg-muted)] mt-1.5">
+              Postoperative Rehabilitation, Manuelle Lymphdrainage, Faszientherapie und medizinische Massagen.
+            </p>
+          </div>
+        </article>
+      </div>
+
+      <!-- Open Borderless Practice Split (Helix R01 airiness, zero boxed borders) -->
+      <div id="praxis" class="mt-16 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center" data-reveal>
+        <div class="lg:col-span-6 relative rounded-[26px] overflow-hidden h-[340px] sm:h-[420px] shadow-[var(--shadow-soft)]">
+          <img src="assets/images/clinic-interior.jpg" alt="Behandlungsraum der Physiotherapie Faro in der Nymphenburger Straße 20a" width="900" height="600" loading="lazy" decoding="async" class="w-full h-full object-cover">
+          <span class="img-badge">Beispielbild</span>
+          <div class="absolute bottom-4 left-4 bg-white/95 backdrop-blur-md text-[#0e1c17] px-4 py-2.5 rounded-2xl shadow-lg flex items-center gap-3">
+            <span class="w-2.5 h-2.5 rounded-full bg-[#196b4f]"></span>
+            <div class="text-xs font-semibold leading-tight">
+              Nymphenburger Str. 20a<br>
+              <span class="text-[#4a5e56] font-normal">80335 München Maxvorstadt</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="lg:col-span-6 space-y-6">
+          <h2 class="text-3xl sm:text-4xl font-semibold">
+            Ruhige Praxisarchitektur trifft präzise Befundung
+          </h2>
+          <p class="text-[var(--fg-muted)] text-base sm:text-lg leading-relaxed">
+            Unter der Leitung von Farhad Faro und Enayat Ahmad betreuen wir Patientinnen und Patienten aller gesetzlichen Krankenkassen sowie Privatversicherte und Selbstzahler. Im Zentrum steht die nachhaltige Ursachenbehandlung statt schneller Standardabläufe.
+          </p>
+          <div class="grid grid-cols-2 gap-6 pt-2 border-t border-[var(--border)]">
+            <div>
+              <div class="font-semibold text-base">Alle Kassen & Privat</div>
+              <div class="text-sm text-[var(--fg-muted)] mt-1">Mit ärztlichem Rezept oder als Privatleistung</div>
+            </div>
+            <div>
+              <div class="font-semibold text-base">Praxisleitung vor Ort</div>
+              <div class="text-sm text-[var(--fg-muted)] mt-1">Farhad Faro & Enayat Ahmad</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Pristine Soft Sage 4-Stat Anchor Bar with Clinic Icons (Helix R01) -->
+      <div class="mt-10 rounded-[24px] bg-[var(--surface-tint-1)] border border-[var(--border)] px-6 py-7 grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-0 lg:divide-x lg:divide-[var(--border)]">
+        <div class="flex flex-col items-center text-center px-4 gap-1.5">
+          <span class="w-9 h-9 rounded-xl bg-white shadow-sm flex items-center justify-center text-[#196b4f]">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l7.1-1.01L12 2z"/></svg>
+          </span>
+          <div class="text-2xl sm:text-3xl font-display font-semibold text-[#11372a]">5,0 ★</div>
+          <div class="text-xs sm:text-sm text-[var(--fg-muted)]">Google Gesamtbewertung</div>
+        </div>
+        <div class="flex flex-col items-center text-center px-4 gap-1.5">
+          <span class="w-9 h-9 rounded-xl bg-white shadow-sm flex items-center justify-center text-[#196b4f]">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </span>
+          <div class="text-2xl sm:text-3xl font-display font-semibold text-[#11372a]">26</div>
+          <div class="text-xs sm:text-sm text-[var(--fg-muted)]">Verifizierte Rezensionen</div>
+        </div>
+        <div class="flex flex-col items-center text-center px-4 gap-1.5">
+          <span class="w-9 h-9 rounded-xl bg-white shadow-sm flex items-center justify-center text-[#196b4f]">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+          </span>
+          <div class="text-2xl sm:text-3xl font-display font-semibold text-[#11372a]">7</div>
+          <div class="text-xs sm:text-sm text-[var(--fg-muted)]">Therapieformen unter einem Dach</div>
+        </div>
+        <div class="flex flex-col items-center text-center px-4 gap-1.5">
+          <span class="w-9 h-9 rounded-xl bg-white shadow-sm flex items-center justify-center text-[#196b4f]">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </span>
+          <div class="text-2xl sm:text-3xl font-display font-semibold text-[#11372a]">07:30</div>
+          <div class="text-xs sm:text-sm text-[var(--fg-muted)]">Frühe Termine ab Montag</div>
+        </div>
+      </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <!-- S03: FULL-BLEED MIST-SLATE 3D STUDIO EXPLORER (Spur+fit R04)        -->
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <section id="explorer" class="scroll-mt-20 explorer-fullbleed py-16 lg:py-20" data-reveal>
+      <div class="max-w-[1360px] mx-auto px-5 sm:px-8 lg:px-12 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        <div class="lg:col-span-5 space-y-6 z-10">
+          <h2 class="text-3xl sm:text-5xl font-semibold text-white">
+            Interaktiver 3D Körper- & Therapie-Explorer
+          </h2>
+          <p class="text-white/80 text-base max-w-md">
+            Drehen Sie das 3D Modell frei oder wählen Sie einen anatomischen Schwerpunkt direkt im Raum.
+          </p>
+
+          <!-- Minimalist Mode Controls -->
+          <div class="flex flex-wrap gap-2 explorer-controls" role="group" aria-label="3D Darstellungsmodus">
+            <button type="button" class="mode-pill is-active" data-mode="spine">Wirbelsäule</button>
+            <button type="button" class="mode-pill" data-mode="joints">Gelenkfokus</button>
+            <button type="button" class="mode-pill" data-mode="fascia">Faszienkette</button>
+            <button type="button" id="explorer-reset" class="mode-pill">Gesamtansicht</button>
+          </div>
+
+          <!-- Borderless Editorial Clinical Readout -->
+          <div class="pt-4 border-t border-white/20 space-y-2 max-w-md">
+            <div id="explorer-zone-badge" class="text-xs font-medium text-[#8be8c4]">Gesamte Körperachse</div>
+            <h3 id="explorer-zone-title" class="text-2xl font-semibold text-white">
+              Ganzheitliche Haltungs- & Bewegungsanalyse
+            </h3>
+            <div id="explorer-zone-therapy" class="text-sm font-medium text-white/95">
+              Individueller Befund vor Ort in München
+            </div>
+            <p id="explorer-zone-desc" class="text-sm text-white/75 leading-relaxed">
+              Drehen Sie das 3D-Modell frei oder wählen Sie direkt einen anatomischen Schwerpunkt für passende Behandlungspfade in der Nymphenburger Str. 20a.
+            </p>
+          </div>
+
+          <!-- Mobile Zone Quick Select -->
+          <div class="flex flex-wrap gap-2 lg:hidden">
+            <button type="button" class="mode-pill" onclick="window.__faroExplorer?.selectZone('hws')">HWS & CMD</button>
+            <button type="button" class="mode-pill" onclick="window.__faroExplorer?.selectZone('lws')">Wirbelsäule</button>
+            <button type="button" class="mode-pill" onclick="window.__faroExplorer?.selectZone('schulter')">Schulter</button>
+            <button type="button" class="mode-pill" onclick="window.__faroExplorer?.selectZone('knie')">Knie & Reha</button>
+          </div>
+        </div>
+
+        <!-- Sculpted Translucent 3D Anatomical Body + 1px Projected Callouts -->
+        <div class="lg:col-span-7 relative">
+          <div id="explorer-stage">
+            <canvas id="explorer-webgl" aria-label="Interaktives 3D Modell der menschlichen Körperachse"></canvas>
+            <svg id="explorer-lines" aria-hidden="true"></svg>
+
+            <button type="button" class="hotspot-btn inline-flex items-center gap-2" data-zone="hws"><span class="w-2 h-2 rounded-full bg-[#5bd4a6]"></span>HWS & Kiefer (CMD)</button>
+            <button type="button" class="hotspot-btn inline-flex items-center gap-2" data-zone="lws"><span class="w-2 h-2 rounded-full bg-[#5bd4a6]"></span>Brust- & Lendenwirbelsäule</button>
+            <button type="button" class="hotspot-btn inline-flex items-center gap-2" data-zone="schulter"><span class="w-2 h-2 rounded-full bg-[#5bd4a6]"></span>Schulter & Faszien</button>
+            <button type="button" class="hotspot-btn inline-flex items-center gap-2" data-zone="knie"><span class="w-2 h-2 rounded-full bg-[#5bd4a6]"></span>Knie & Sportreha</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <!-- S04: WARM IVORY & SAGE TRUST STAGE (Jo Yoga R02)                    -->
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <section id="bewertungen" class="scroll-mt-24 ivory-section py-16 lg:py-24 relative overflow-hidden">
+      <div class="max-w-[1360px] mx-auto px-5 sm:px-8 lg:px-12 relative">
+        <!-- Editorial Centered Intro + Floating Stats (R02 Pattern) -->
+        <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-10 relative z-10">
+          <div>
+            <h2 class="text-3xl sm:text-5xl font-semibold max-w-2xl">
+              Vertrauen durch <span class="font-normal italic text-[var(--emerald-accent)]">spürbare</span> Therapiequalität
+            </h2>
+            <p class="mt-3 text-[var(--fg-muted)] max-w-xl">
+              In der Maxvorstadt schätzen unsere Patientinnen und Patienten die ruhige Atmosphäre, klare Befundung und individuell abgestimmte Therapiepläne.
+            </p>
+          </div>
+          <div class="flex items-center gap-6 shrink-0 bg-[var(--surface)] px-5 py-3 rounded-2xl border border-[var(--border)] shadow-sm">
+            <div>
+              <div class="text-xs text-[var(--fg-muted)]">Google Bewertung</div>
+              <div class="text-2xl font-display font-semibold">5,0 ★</div>
+            </div>
+            <div class="h-8 w-px bg-[var(--border)]"></div>
+            <div>
+              <div class="text-xs text-[var(--fg-muted)]">Verifizierte Stimmen</div>
+              <div class="text-2xl font-display font-semibold">26</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Seamless Edge-Blended Botanical Sage Showcase Card (R02 Hero Card) -->
+        <div class="trust-stage-card grid grid-cols-1 lg:grid-cols-12 items-center">
+          <div class="lg:col-span-6 relative h-[320px] sm:h-[390px]">
+            <img src="assets/images/therapy-core.jpg" alt="Aktive Physiotherapie und Rumpfstabilisation bei Physiotherapie Faro" width="800" height="600" loading="lazy" decoding="async" class="w-full h-full object-cover warm-film-grade">
+            <div class="hidden lg:block absolute inset-0 pointer-events-none" style="background: linear-gradient(90deg, rgba(36,59,46,0) 40%, rgba(40,66,52,0.85) 82%, #2b4738 100%);"></div>
+            <span class="img-badge">Beispielbild</span>
+          </div>
+
+          <div class="lg:col-span-6 p-7 sm:p-11 space-y-6 relative z-10">
+            <p class="text-lg sm:text-2xl font-display font-normal leading-snug text-white/95">
+              „Nachhaltige Beweglichkeit entsteht dort, wo präzise Diagnostik auf gezielte manuelle Arbeit trifft.“
+            </p>
+            <div class="text-sm text-white/75">
+              Leitung: Farhad Faro & Enayat Ahmad · Nymphenburger Str. 20a
+            </div>
+
+            <div class="flex flex-wrap gap-2.5 pt-1">
+              <span class="benefit-pill"><span class="text-[#196b4f]">✓</span> Manuelle Präzision</span>
+              <span class="benefit-pill"><span class="text-[#196b4f]">✓</span> Feste Ansprechpartner</span>
+              <span class="benefit-pill"><span class="text-[#196b4f]">✓</span> Kasse & Privat</span>
+              <span class="benefit-pill"><span class="text-[#196b4f]">✓</span> CMD Kompetenz</span>
+              <span class="benefit-pill"><span class="text-[#196b4f]">✓</span> Sportrehabilitation</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3-Column Image-First Pathway Grid (Jo Yoga R02, Warm Film Grade) -->
+        <div class="mt-10 grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div class="rounded-[24px] bg-[var(--surface)] overflow-hidden flex flex-col shadow-sm">
+            <div class="h-48 relative">
+              <img src="assets/images/therapy-manual.jpg" alt="Erstbefund in der Physiotherapie" width="500" height="340" loading="lazy" decoding="async" class="w-full h-full object-cover object-center warm-film-grade">
+              <span class="img-badge">Beispielbild</span>
+            </div>
+            <div class="p-6 space-y-1.5">
+              <h3 class="text-xl font-semibold">Erstbefund & Analyse</h3>
+              <p class="text-sm text-[var(--fg-muted)]">Strukturierte Untersuchung von Haltung, Gelenkmechanik und Schmerzursache.</p>
+            </div>
+          </div>
+
+          <div class="rounded-[24px] bg-[#e9f1ec] text-[#0e1c17] overflow-hidden flex flex-col shadow-sm">
+            <div class="h-48 relative">
+              <img src="assets/images/therapy-detail-hands.jpg" alt="Manuelle Mobilisation" width="500" height="340" loading="lazy" decoding="async" class="w-full h-full object-cover warm-film-grade">
+              <span class="img-badge">Beispielbild</span>
+            </div>
+            <div class="p-6 space-y-1.5">
+              <h3 class="text-xl font-semibold text-[#11372a]">Gezielte Mobilisation</h3>
+              <p class="text-sm text-[#42584e]">Manuelle Therapie, CMD Kieferbehandlung und tiefgehende Faszienlösung.</p>
+            </div>
+          </div>
+
+          <div class="rounded-[24px] bg-[var(--surface)] overflow-hidden flex flex-col shadow-sm">
+            <div class="h-48 relative">
+              <img src="assets/images/therapy-detail-core.jpg" alt="Aktive Stabilitätsübung" width="500" height="340" loading="lazy" decoding="async" class="w-full h-full object-cover warm-film-grade">
+              <span class="img-badge">Beispielbild</span>
+            </div>
+            <div class="p-6 space-y-1.5">
+              <h3 class="text-xl font-semibold">Aktive Stabilität</h3>
+              <p class="text-sm text-[var(--fg-muted)]">Krankengymnastik und Sportreha für dauerhafte Belastbarkeit im Alltag.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Clean Open Therapy Focus Finder + Hairline FAQ -->
+        <div class="mt-14 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12">
+          <div class="lg:col-span-6 space-y-6">
+            <div>
+              <h3 class="text-2xl sm:text-3xl font-semibold">Therapiefokus Orientierung</h3>
+              <p class="text-sm text-[var(--fg-muted)] mt-1">Erste unverbindliche Einordnung vor Ihrem Praxisbesuch.</p>
+            </div>
+
+            <div class="space-y-2.5">
+              <div class="text-xs font-medium text-[var(--fg-muted)]">Beschwerdebild</div>
+              <div class="flex flex-wrap gap-2">
+                <button type="button" class="goal-chip px-3.5 py-2 rounded-full text-xs font-semibold border border-[var(--border)] bg-[#0b231c] text-white border-[#0b231c]" data-goal="ruecken">Rücken & Wirbelsäule</button>
+                <button type="button" class="goal-chip px-3.5 py-2 rounded-full text-xs font-semibold border border-[var(--border)]" data-goal="kiefer">Kiefer & CMD</button>
+                <button type="button" class="goal-chip px-3.5 py-2 rounded-full text-xs font-semibold border border-[var(--border)]" data-goal="sport">Sport & OP-Reha</button>
+                <button type="button" class="goal-chip px-3.5 py-2 rounded-full text-xs font-semibold border border-[var(--border)]" data-goal="lymphe">Lymphdrainage & Faszien</button>
+              </div>
+            </div>
+
+            <div class="space-y-2.5">
+              <div class="flex justify-between text-xs font-semibold">
+                <label for="painRange">Aktuelle Belastung / Einschränkung</label>
+                <span id="painVal" class="text-[var(--emerald-accent)]">5 / 10</span>
+              </div>
+              <input id="painRange" type="range" min="1" max="10" value="5" class="faro-slider w-full">
+            </div>
+
+            <div class="space-y-2.5">
+              <div class="text-xs font-medium text-[var(--fg-muted)]">Versicherungsart</div>
+              <div class="flex gap-2">
+                <button type="button" class="insurance-chip px-4 py-2 rounded-full text-xs font-semibold border border-[var(--border)] bg-[#0b231c] text-white" data-ins="gesetzlich">Gesetzliche Kasse</button>
+                <button type="button" class="insurance-chip px-4 py-2 rounded-full text-xs font-semibold border border-[var(--border)]" data-ins="privat">Privat / Selbstzahler</button>
+              </div>
+            </div>
+
+            <div class="pt-4 border-t border-[var(--border)]">
+              <div class="text-xs font-semibold text-[var(--emerald-accent)]">Empfohlener Schwerpunkt</div>
+              <div id="calc-rec-title" class="text-xl font-semibold mt-1">Manuelle Therapie & Krankengymnastik</div>
+              <p id="calc-rec-note" class="text-sm text-[var(--fg-muted)] mt-1"></p>
+            </div>
+          </div>
+
+          <div class="lg:col-span-6">
+            <h3 class="text-2xl sm:text-3xl font-semibold mb-4">Häufige Fragen zur Behandlung</h3>
+            <div class="divide-y divide-[var(--border)]">
+              <div class="faq-item py-4 open">
+                <button type="button" class="faq-trigger w-full flex items-center justify-between text-left font-semibold gap-4" aria-expanded="true" aria-controls="faq-1">
+                  <span>Welche Krankenkassen werden akzeptiert?</span>
+                  <span class="faq-icon text-xl leading-none">+</span>
+                </button>
+                <div id="faq-1" class="faq-answer-wrap">
+                  <div class="faq-answer-inner pt-2.5 text-sm text-[var(--fg-muted)]">
+                    Wir behandeln sowohl Patientinnen und Patienten aller gesetzlichen Krankenkassen mit ärztlicher Verordnung als auch Privatpatienten und Selbstzahler.
+                  </div>
+                </div>
+              </div>
+
+              <div class="faq-item py-4">
+                <button type="button" class="faq-trigger w-full flex items-center justify-between text-left font-semibold gap-4" aria-expanded="false" aria-controls="faq-2">
+                  <span>Wie erreiche ich die Praxis in der Maxvorstadt?</span>
+                  <span class="faq-icon text-xl leading-none">+</span>
+                </button>
+                <div id="faq-2" class="faq-answer-wrap">
+                  <div class="faq-answer-inner pt-2.5 text-sm text-[var(--fg-muted)]">
+                    Die Praxis befindet sich zentral in der Nymphenburger Str. 20a in 80335 München (Maxvorstadt) und ist bequem mit öffentlichen Verkehrsmitteln erreichbar.
+                  </div>
+                </div>
+              </div>
+
+              <div class="faq-item py-4">
+                <button type="button" class="faq-trigger w-full flex items-center justify-between text-left font-semibold gap-4" aria-expanded="false" aria-controls="faq-3">
+                  <span>Was sollte ich zum ersten Termin mitbringen?</span>
+                  <span class="faq-icon text-xl leading-none">+</span>
+                </button>
+                <div id="faq-3" class="faq-answer-wrap">
+                  <div class="faq-answer-inner pt-2.5 text-sm text-[var(--fg-muted)]">
+                    Bitte bringen Sie Ihre ärztliche Heilmittelverordnung, vorhandene Befunde oder Bildgebungen sowie bequeme Kleidung für den ersten Bewegungscheck mit.
+                  </div>
+                </div>
+              </div>
+
+              <div class="faq-item py-4">
+                <button type="button" class="faq-trigger w-full flex items-center justify-between text-left font-semibold gap-4" aria-expanded="false" aria-controls="faq-4">
+                  <span>Wann sind Termine möglich?</span>
+                  <span class="faq-icon text-xl leading-none">+</span>
+                </button>
+                <div id="faq-4" class="faq-answer-wrap">
+                  <div class="faq-answer-inner pt-2.5 text-sm text-[var(--fg-muted)]">
+                    Montag bis Donnerstag von 07:30 bis 12:00 Uhr und 14:00 bis 16:30 Uhr, sowie Freitag von 07:30 bis 11:00 Uhr. Telefonische Abstimmung unter +49 89 18914161.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <!-- S05: SWISS ARCHITECTURAL SPLIT CANVAS (Yoga Method R05)             -->
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <section id="kontakt" class="scroll-mt-24 swiss-split relative overflow-hidden">
+      <div class="max-w-[1360px] mx-auto grid grid-cols-1 lg:grid-cols-12 relative">
+        <!-- Left Crisp White Architectural Surface -->
+        <div class="lg:col-span-6 px-5 sm:px-10 lg:px-14 py-16 lg:py-20 flex flex-col justify-between gap-8">
+          <div>
+            <h2 class="text-3xl sm:text-5xl font-semibold">Termin & Erreichbarkeit</h2>
+            <p class="text-[var(--fg-muted)] mt-3 text-base">
+              Nymphenburger Str. 20a, 80335 München Maxvorstadt
+            </p>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-8 py-6 border-y border-[var(--border)] text-sm">
+            <div>
+              <div class="text-xs font-medium text-[var(--fg-muted)] mb-2">Öffnungszeiten</div>
+              <div class="space-y-1 font-medium">
+                <div>Mo bis Do: 07:30 bis 12:00</div>
+                <div>Nachmittags: 14:00 bis 16:30</div>
+                <div>Fr: 07:30 bis 11:00</div>
+                <div class="text-[var(--fg-muted)] font-normal">Sa & So: Geschlossen</div>
+              </div>
+            </div>
+            <div class="flex flex-col justify-between">
+              <div>
+                <div class="text-xs font-medium text-[var(--fg-muted)] mb-2">Telefonische Vergabe</div>
+                <a href="tel:+498918914161" class="text-xl font-display font-semibold text-[var(--emerald-accent)] hover:underline">+49 89 18914161</a>
+              </div>
+              <div class="mt-4">
+                <a href="https://www.google.com/maps/search/?api=1&query=Physiotherapie%20Faro&query_place_id=ChIJGy0TCZp1nkcRsqdqQ1qtNE8" target="_blank" rel="noopener noreferrer" class="text-xs font-semibold underline underline-offset-4 hover:text-[var(--emerald-accent)]">
+                  Route auf Google Maps öffnen →
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- High-Contrast Privacy-Safe Monochrome Maxvorstadt Vector Map -->
+          <div>
+            <div id="mapPlaceholder" class="relative rounded-2xl overflow-hidden border border-[#0e1c17]/15 h-[190px] bg-[#e5ece7] flex items-center justify-center">
+              <svg viewBox="0 0 600 220" class="w-full h-full" aria-hidden="true">
+                <rect width="600" height="220" fill="#e6ede8"/>
+                <rect x="45" y="25" width="110" height="65" rx="6" fill="#d7e2db"/>
+                <rect x="195" y="20" width="120" height="55" rx="6" fill="#d7e2db"/>
+                <rect x="355" y="15" width="145" height="50" rx="6" fill="#d7e2db"/>
+                <rect x="220" y="135" width="130" height="60" rx="6" fill="#d7e2db"/>
+                <path d="M0 155 L600 75" stroke="#ffffff" stroke-width="14"/>
+                <path d="M120 0 L210 220 M340 0 L410 220 M495 0 L535 220" stroke="#ffffff" stroke-width="8"/>
+                <path d="M40 55 L580 185" stroke="#f5f8f6" stroke-width="6"/>
+                <text x="115" y="128" transform="rotate(-7.5 115 128)" font-family="Plus Jakarta Sans, sans-serif" font-size="10" font-weight="700" fill="#3a4f46">NYMPHENBURGER STR.</text>
+                <text x="372" y="175" transform="rotate(-77 372 175)" font-family="Plus Jakarta Sans, sans-serif" font-size="9" font-weight="600" fill="#51685e">LOTHSTR.</text>
+                <circle cx="315" cy="113" r="18" fill="#196b4f" fill-opacity="0.18"/>
+                <circle cx="315" cy="113" r="7" fill="#0b231c" stroke="#ffffff" stroke-width="2.5"/>
+                <rect x="330" y="92" width="152" height="24" rx="12" fill="#0b231c"/>
+                <text x="342" y="108" font-family="Plus Jakarta Sans, sans-serif" font-size="10.5" font-weight="600" fill="#ffffff">Physiotherapie Faro (20a)</text>
+              </svg>
+              <button type="button" id="loadMapBtn" class="absolute bottom-3.5 right-3.5 text-xs font-semibold px-4 py-2 rounded-full bg-white text-[#0b231c] border border-[#0e1c17]/15 shadow-md hover:bg-[#0b231c] hover:text-white transition-colors">
+                Google Maps aktivieren
+              </button>
+            </div>
+            <iframe
+              id="gmapsIframe"
+              title="Standort Physiotherapie Faro München"
+              class="w-full h-[200px] rounded-2xl mt-3 hidden border border-[var(--border)]"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              data-src="https://maps.google.com/maps?q=Nymphenburger+Str.+20a,+80335+M%C3%BCnchen&output=embed">
+            </iframe>
+          </div>
+        </div>
+
+        <!-- Right Light Mineral Tonal Surface with Swiss Circular Halo Visual + Hairline Form (R05) -->
+        <div class="lg:col-span-6 swiss-right px-5 sm:px-10 lg:px-14 py-14 lg:py-20 flex flex-col justify-center gap-7">
+          <div class="swiss-circle-motif" aria-hidden="true"></div>
+
+          <div class="relative z-10 w-full max-w-lg space-y-6">
+            <div class="flex flex-col sm:flex-row sm:items-center gap-6 pb-6 border-b border-[var(--border)]">
+              <div class="relative w-36 h-36 rounded-full p-1.5 bg-white shadow-xl border border-[var(--border)] shrink-0">
+                <img src="assets/images/therapy-core.jpg" alt="Praxis Physiotherapie Faro München" width="200" height="200" loading="lazy" decoding="async" class="w-full h-full object-cover rounded-full warm-film-grade">
+              </div>
+              <div>
+                <h3 class="text-2xl sm:text-3xl font-semibold">Unverbindliche Rückrufbitte</h3>
+                <p class="text-[var(--fg-muted)] text-sm mt-1.5">
+                  Persönliche Terminabstimmung für alle gesetzlichen Kassen & Privatpatienten.
+                </p>
+              </div>
+            </div>
+
+            <form id="bookingForm" class="space-y-5">
+              <div>
+                <label for="f-name" class="block text-xs font-medium text-[var(--fg-muted)]">Ihr Name</label>
+                <input id="f-name" name="name" type="text" required placeholder="Vor- und Nachname" class="hairline-input">
+              </div>
+
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <div>
+                  <label for="f-phone" class="block text-xs font-medium text-[var(--fg-muted)]">Telefonnummer</label>
+                  <input id="f-phone" name="phone" type="tel" required placeholder="+49 ..." class="hairline-input">
+                </div>
+                <div>
+                  <label for="f-type" class="block text-xs font-medium text-[var(--fg-muted)]">Schwerpunkt</label>
+                  <select id="f-type" name="type" class="hairline-input cursor-pointer">
+                    <option>Manuelle Therapie</option>
+                    <option>Krankengymnastik</option>
+                    <option>Kiefergelenktherapie (CMD)</option>
+                    <option>Sportrehabilitation</option>
+                    <option>Lymphdrainage & Faszien</option>
+                  </select>
+                </div>
+              </div>
+
+              <label class="flex items-start gap-2.5 text-xs text-[var(--fg-muted)] cursor-pointer pt-1">
+                <input type="checkbox" required class="mt-0.5 accent-[#196b4f]">
+                <span>Ich stimme der Verarbeitung meiner Angaben gemäß der <button type="button" data-open-modal="datenschutzModal" class="underline text-[var(--fg)]">Datenschutzerklärung</button> zu.</span>
+              </label>
+
+              <button type="submit" class="btn-pill btn-pill-emerald">
+                Rückruf anfragen
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+              </button>
+
+              <div id="formStatus" role="status" aria-live="polite" class="hidden p-3.5 rounded-xl bg-[var(--surface-tint-1)] border border-[var(--border)] text-xs text-[var(--emerald-accent)] font-medium"></div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t border-[var(--border)] bg-[var(--surface)] py-8">
+    <div class="max-w-[1360px] mx-auto px-5 sm:px-8 lg:px-12 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 text-sm text-[var(--fg-muted)]">
+      <div>
+        <strong class="text-[var(--fg)]">Physiotherapie Faro</strong> · Leitung: Farhad Faro & Enayat Ahmad · Nymphenburger Str. 20a, 80335 München
+      </div>
+      <div class="flex items-center gap-5">
+        <button type="button" data-open-modal="impressumModal" class="hover:text-[var(--fg)] underline">Impressum</button>
+        <button type="button" data-open-modal="datenschutzModal" class="hover:text-[var(--fg)] underline">Datenschutz</button>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Legal Modals -->
+  <div id="impressumModal" class="legal-modal" role="dialog" aria-modal="true" aria-labelledby="impTitle" aria-hidden="true">
+    <div class="legal-dialog">
+      <div class="flex items-center justify-between mb-4">
+        <h2 id="impTitle" class="text-2xl font-bold">Impressum (§ 5 DDG)</h2>
+        <button type="button" data-close-modal aria-label="Schließen" class="w-9 h-9 rounded-full border border-[var(--border)] flex items-center justify-center font-bold">✕</button>
+      </div>
+      <div class="space-y-3 text-sm text-[var(--fg-muted)]">
+        <p><strong class="text-[var(--fg)]">Physiotherapie Faro</strong><br>Leitung: Farhad Faro & Enayat Ahmad<br>Nymphenburger Str. 20a<br>80335 München</p>
+        <p><strong class="text-[var(--fg)]">Kontakt</strong><br>Telefon: +49 89 18914161<br><!-- PLATZHALTER: Praxiseigene E-Mail-Adresse ergänzen --></p>
+        <p><strong class="text-[var(--fg)]">Berufsbezeichnung</strong><br>Physiotherapeutinnen / Physiotherapeuten (verliehen in Deutschland). Aufsichtsbehörde und zuständige Stelle gemäß Heilberufekammergesetz Bayern.</p>
+      </div>
+    </div>
+  </div>
+
+  <div id="datenschutzModal" class="legal-modal" role="dialog" aria-modal="true" aria-labelledby="dsTitle" aria-hidden="true">
+    <div class="legal-dialog">
+      <div class="flex items-center justify-between mb-4">
+        <h2 id="dsTitle" class="text-2xl font-bold">Datenschutzerklärung</h2>
+        <button type="button" data-close-modal aria-label="Schließen" class="w-9 h-9 rounded-full border border-[var(--border)] flex items-center justify-center font-bold">✕</button>
+      </div>
+      <div class="space-y-3 text-sm text-[var(--fg-muted)]">
+        <p><strong class="text-[var(--fg)]">Verantwortliche Stelle</strong><br>Physiotherapie Faro, Farhad Faro & Enayat Ahmad, Nymphenburger Str. 20a, 80335 München, Tel. +49 89 18914161.</p>
+        <p><strong class="text-[var(--fg)]">Kartenansicht & Einwilligung</strong><br>Die eingebettete Google Maps Karte wird erst nach Ihrer aktiven Zustimmung (Zwei-Klick-Lösung) geladen, sodass beim Aufruf dieser Website zunächst keine Daten an Google Maps übertragen werden.</p>
+        <p><strong class="text-[var(--fg)]">Ihre Rechte</strong><br>Sie haben jederzeit das Recht auf Auskunft, Berichtigung, Löschung sowie Einschränkung der Verarbeitung Ihrer personenbezogenen Daten gemäß DSGVO.</p>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>
