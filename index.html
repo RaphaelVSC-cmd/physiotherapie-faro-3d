@@ -24,25 +24,28 @@
 <body>
   <a href="#main-content" class="skip-link">Zum Hauptinhalt springen</a>
 
-  <!-- Unified Mindly-Style Floating 3-Zone Header -->
+  <!-- Unified Single Header -->
   <header class="site-header" id="mainNav">
     <div class="header-inner">
       <a href="#" class="nav-logo" aria-label="Physiotherapie Faro Startseite">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
-          <path d="M12 3v18M7 8c3-2 7-2 10 0M6 13c4-2 8-2 12 0M8 18c2.5-1.5 5.5-1.5 8 0"/>
-        </svg>
+        <span class="w-8 h-8 rounded-full bg-white/15 border border-white/20 flex items-center justify-center">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <path d="M12 3v18M7 8c3-2 7-2 10 0M6 13c4-2 8-2 12 0M8 18c2.5-1.5 5.5-1.5 8 0"/>
+          </svg>
+        </span>
         <span>Physiotherapie Faro</span>
       </a>
 
-      <nav class="nav-pill-center" aria-label="Hauptnavigation">
-        <a href="#leistungen" class="is-active">Leistungen</a>
+      <nav class="nav-links hidden md:flex items-center gap-7" aria-label="Hauptnavigation">
+        <a href="#leistungen">Leistungen</a>
         <a href="#explorer">3D Anatomie</a>
         <a href="#praxis">Praxis</a>
+        <a href="#bewertungen">Bewertungen</a>
         <a href="#kontakt">Kontakt</a>
       </nav>
 
-      <div class="flex items-center gap-2">
-        <button id="themeToggle" class="theme-toggle opacity-80 hover:opacity-100" aria-label="Farbschema wechseln" title="Hell/Dunkel wechseln">
+      <div class="flex items-center gap-2.5">
+        <button id="themeToggle" class="theme-toggle" aria-label="Farbschema wechseln" title="Hell/Dunkel wechseln">
           <svg id="icon-sun" class="w-4 h-4 hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/>
           </svg>
@@ -50,9 +53,9 @@
             <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
           </svg>
         </button>
-        <a href="#kontakt" class="btn-pill btn-pill-nav hidden sm:inline-flex">
+        <a href="tel:+498918914161" class="btn-pill btn-pill-nav hidden sm:inline-flex">
           Termin anfragen
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M7 17L17 7M7 7h10v10"/></svg>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
         </a>
         <button class="hamburger" id="hamburger" aria-label="Menü öffnen" aria-expanded="false">
           <span class="ham-line top"></span>
@@ -82,7 +85,7 @@
     <section class="hero-stage" id="hero">
       <canvas id="hero-webgl" aria-hidden="true"></canvas>
 
-      <div class="hero-content wide-wrap text-center flex flex-col items-center">
+      <div class="hero-content max-w-[1360px] mx-auto px-5 sm:px-8 lg:px-12 text-center flex flex-col items-center">
         <div class="hero-scrim flex flex-col items-center">
           <div class="text-xs sm:text-sm font-medium text-white/85 hero-stagger mb-5 flex items-center gap-2">
             <span class="text-[#7ae4bc]">★★★★★</span>
@@ -143,7 +146,7 @@
     <!-- S02: 4x 3D ANATOMICAL TREATMENT CARDS + OPEN PRACTICE EDITORIAL     -->
     <!-- ═══════════════════════════════════════════════════════════════════ -->
     <section id="leistungen" class="scroll-mt-24 relative z-10 bg-[var(--bg)] pt-14 pb-14 lg:pt-20 lg:pb-20">
-      <div class="wide-wrap">
+      <div class="max-w-[1360px] mx-auto px-5 sm:px-8 lg:px-12">
       <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
         <div>
           <h2 class="text-3xl sm:text-5xl font-semibold max-w-2xl">
@@ -298,7 +301,7 @@
     <!-- S03: FULL-BLEED MIST-SLATE 3D STUDIO EXPLORER (Spur+fit R04)        -->
     <!-- ═══════════════════════════════════════════════════════════════════ -->
     <section id="explorer" class="scroll-mt-20 explorer-fullbleed py-16 lg:py-20" data-reveal>
-      <div class="wide-wrap grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+      <div class="max-w-[1360px] mx-auto px-5 sm:px-8 lg:px-12 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
         <div class="lg:col-span-5 space-y-6 z-10">
           <h2 class="text-3xl sm:text-5xl font-semibold text-white">
             Interaktiver 3D Körper- & Therapie-Explorer
@@ -357,7 +360,7 @@
     <!-- S04: WARM IVORY & SAGE TRUST STAGE (Jo Yoga R02)                    -->
     <!-- ═══════════════════════════════════════════════════════════════════ -->
     <section id="bewertungen" class="scroll-mt-24 ivory-section py-16 lg:py-24 relative overflow-hidden">
-      <div class="wide-wrap relative">
+      <div class="max-w-[1360px] mx-auto px-5 sm:px-8 lg:px-12 relative">
         <!-- Editorial Centered Intro + Floating Stats (R02 Pattern) -->
         <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-10 relative z-10">
           <div>
@@ -544,9 +547,9 @@
     <!-- S05: SWISS ARCHITECTURAL SPLIT CANVAS (Yoga Method R05)             -->
     <!-- ═══════════════════════════════════════════════════════════════════ -->
     <section id="kontakt" class="scroll-mt-24 swiss-split relative overflow-hidden">
-      <div class="w-full grid grid-cols-1 lg:grid-cols-12 relative">
+      <div class="max-w-[1360px] mx-auto grid grid-cols-1 lg:grid-cols-12 relative">
         <!-- Left Crisp White Architectural Surface -->
-        <div class="lg:col-span-6 px-6 sm:px-10 lg:px-16 xl:px-24 py-16 lg:py-20 flex flex-col justify-between gap-8">
+        <div class="lg:col-span-6 px-5 sm:px-10 lg:px-14 py-16 lg:py-20 flex flex-col justify-between gap-8">
           <div>
             <h2 class="text-3xl sm:text-5xl font-semibold">Termin & Erreichbarkeit</h2>
             <p class="text-[var(--fg-muted)] mt-3 text-base">
@@ -612,10 +615,10 @@
         </div>
 
         <!-- Right Light Mineral Tonal Surface with Swiss Circular Halo Visual + Hairline Form (R05) -->
-        <div class="lg:col-span-6 swiss-right px-6 sm:px-10 lg:px-16 xl:px-24 py-14 lg:py-20 flex flex-col justify-center gap-7">
+        <div class="lg:col-span-6 swiss-right px-5 sm:px-10 lg:px-14 py-14 lg:py-20 flex flex-col justify-center gap-7">
           <div class="swiss-circle-motif" aria-hidden="true"></div>
 
-          <div class="relative z-10 w-full max-w-xl space-y-6">
+          <div class="relative z-10 w-full max-w-lg space-y-6">
             <div class="flex flex-col sm:flex-row sm:items-center gap-6 pb-6 border-b border-[var(--border)]">
               <div class="relative w-36 h-36 rounded-full p-1.5 bg-white shadow-xl border border-[var(--border)] shrink-0">
                 <img src="assets/images/therapy-core.jpg" alt="Praxis Physiotherapie Faro München" width="200" height="200" loading="lazy" decoding="async" class="w-full h-full object-cover rounded-full warm-film-grade">
@@ -670,7 +673,7 @@
   </main>
 
   <footer class="border-t border-[var(--border)] bg-[var(--surface)] py-8">
-    <div class="wide-wrap flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 text-sm text-[var(--fg-muted)]">
+    <div class="max-w-[1360px] mx-auto px-5 sm:px-8 lg:px-12 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 text-sm text-[var(--fg-muted)]">
       <div>
         <strong class="text-[var(--fg)]">Physiotherapie Faro</strong> · Leitung: Farhad Faro & Enayat Ahmad · Nymphenburger Str. 20a, 80335 München
       </div>

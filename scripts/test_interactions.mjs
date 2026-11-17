@@ -29,8 +29,7 @@ page.on('console', (m) => { if (m.type() === 'error') errors.push(m.text()); });
 page.on('pageerror', (e) => errors.push(e.message));
 
 await page.goto(url, { waitUntil: 'networkidle' });
-await page.waitForFunction(() => Boolean(window.__faroExplorer));
-await page.waitForTimeout(300);
+await page.waitForTimeout(800);
 
 // 1. Theme toggle
 await page.click('#themeToggle');

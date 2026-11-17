@@ -68,28 +68,12 @@ themeToggle?.addEventListener('click', () => {
   updateThemeIcons(next);
 });
 
-// ─── NAVBAR SCROLL STATE & ACTIVE PILL TRACKING ──────────────────────────
+// ─── NAVBAR SCROLL STATE ──────────────────────────────────────────────────
 const mainNav = document.getElementById('mainNav');
 ScrollTrigger.create({
   start: 'top -56',
   onUpdate: (self) => mainNav?.classList.toggle('scrolled', self.progress > 0),
 });
-
-const navLinks = Array.from(document.querySelectorAll('.nav-pill-center a'));
-['leistungen', 'explorer', 'praxis', 'kontakt'].forEach((secId) => {
-  const sec = document.getElementById(secId);
-  if (!sec) return;
-  ScrollTrigger.create({
-    trigger: sec,
-    start: 'top 45%',
-    end: 'bottom 45%',
-    onEnter: () => setActiveNav(secId),
-    onEnterBack: () => setActiveNav(secId),
-  });
-});
-function setActiveNav(id) {
-  navLinks.forEach((a) => a.classList.toggle('is-active', a.getAttribute('href') === `#${id}`));
-}
 
 // ─── MOBILE HAMBURGER (Single X-Mechanism) ────────────────────────────────
 const hamburger = document.getElementById('hamburger');
