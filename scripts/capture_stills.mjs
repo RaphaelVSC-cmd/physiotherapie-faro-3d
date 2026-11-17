@@ -105,6 +105,19 @@ await page.evaluate(() => {
 await page.waitForTimeout(900);
 await page.screenshot({ path: path.join(outDir, 'S05.png') });
 
+// Wide 1920x1080 edge-to-edge verification
+await page.setViewportSize({ width: 1920, height: 1080 });
+await page.evaluate(() => window.scrollTo(0, 0));
+await page.waitForTimeout(800);
+await page.screenshot({ path: path.join(outDir, 'wide_hero.png') });
+
+await page.evaluate(() => {
+  const el = document.getElementById('leistungen');
+  if (el) window.scrollTo(0, el.offsetTop - 75);
+});
+await page.waitForTimeout(900);
+await page.screenshot({ path: path.join(outDir, 'wide_s02.png') });
+
 // Mobile 375x812 check
 await page.setViewportSize({ width: 375, height: 812 });
 await page.evaluate(() => window.scrollTo(0, 0));
